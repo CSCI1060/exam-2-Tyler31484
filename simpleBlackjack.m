@@ -13,3 +13,28 @@ function avgScore = simpleBlackjack(limit, trials)
 % OUTPUT avgScore – The average final score of
 % all hands.
 
+&&
+%%
+function avgScore = simpleBlackjack(limit, trials)
+    % Initialize total score to accumulate the scores of all hands
+    totalScore = 0;
+
+    % Loop over the number of trials
+    for t = 1:trials
+        handValue = 0;
+        
+        % Simulate drawing cards until the hand value reaches the limit
+        while handValue < limit
+            card = randi([1, 11]); % Randomly draw a card between 1 and 11
+            handValue = handValue + card;
+        end
+        
+        % Add the hand value to the total score
+        totalScore = totalScore + handValue;
+    end
+
+    % Calculate the average score
+    avgScore = totalScore / trials;
+end
+
+%%input: avgScore = simpleBlackjack(limit ,trials )
